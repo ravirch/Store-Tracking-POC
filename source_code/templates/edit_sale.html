@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Edit Sale</h2>
+<form method="POST" action="{{ url_for('edit_sale', id=sale.sale_id) }}">
+    <select name="product_id" class="form-control mb-2">
+        {% for product in products %}
+        <option value="{{ product.product_id }}" {% if product.product_id == sale.product_id %}selected{% endif %}>
+            {{ product.product_name }}
+        </option>
+        {% endfor %}
+    </select>
+    <select name="store_id" class="form-control mb-2">
+        {% for store in stores %}
+        <option value="{{ store.store_id }}" {% if store.store_id == sale.store_id %}selected{% endif %}>
+            {{ store.store_name }}
+        </option>
+        {% endfor %}
+    </select>
+    <input type="date" name="sale_date" value="{{ sale.sale_date }}" class="form-control mb-2">
+    <input type="number" name="quantity" value="{{ sale.quantity }}" class="form-control mb-2">
+    <button type="submit" class="btn btn-primary">Update Sale</button>
+</form>
+{% endblock %}

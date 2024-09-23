@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="display-4">Manage Stores</h2>
+<form method="POST" action="{{ url_for('add_store') }}" class="mb-5 p-3 bg-light rounded shadow-sm">
+    <div class="form-row">
+        <div class="col-md-6">
+            <input type="text" name="name" placeholder="Store Name" class="form-control" required>
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="location" placeholder="Location" class="form-control" required>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary btn-block">Add Store</button>
+        </div>
+    </div>
+</form>
+
+<h3>Stores List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Store Name</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for store in stores %}
+        <tr>
+            <td>{{ store.store_name }}</td>
+            <td>{{ store.location }}</td>
+            <td>
+                <a href="{{ url_for('edit_store', id=store.store_id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ url_for('delete_store', id=store.store_id) }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

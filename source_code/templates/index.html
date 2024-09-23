@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Store Tracking POC</h1>
+    <p class="lead">Manage your products, stores, and sales data efficiently.</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ product_count }}</h2>
+                    <p class="card-text">Products</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ store_count }}</h2>
+                    <p class="card-text">Stores</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ sale_count }}</h2>
+                    <p class="card-text">Sales</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="display-4">Manage Sales</h2>
+<form method="POST" action="{{ url_for('add_sale') }}" class="mb-5 p-3 bg-light rounded shadow-sm">
+    <div class="form-row">
+        <div class="col-md-3">
+            <select name="product_id" class="form-control">
+                <option value="" disabled selected>Select Product</option>
+                {% for product in products %}
+                <option value="{{ product.product_id }}">{{ product.product_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select name="store_id" class="form-control">
+                <option value="" disabled selected>Select Store</option>
+                {% for store in stores %}
+                <option value="{{ store.store_id }}">{{ store.store_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input type="date" name="sale_date" class="form-control" placeholder="Date">
+        </div>
+        <div class="col-md-2">
+            <input type="number" name="quantity" placeholder="Quantity" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary btn-block">Add Sale</button>
+        </div>
+    </div>
+</form>
+
+<h3>Recent Sales</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Store</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sale in sales %}
+        <tr>
+            <td>{{ sale.product.product_name }}</td>
+            <td>{{ sale.store.store_name }}</td>
+            <td>{{ sale.sale_date }}</td>
+            <td>{{ sale.quantity }}</td>
+            <td>&#8377;{{ sale.total_amount }}</td>
+            <td>
+                <a href="{{ url_for('edit_sale', id=sale.sale_id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ url_for('delete_sale', id=sale.sale_id) }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
