@@ -78,6 +78,6 @@ The web app enables users to manage and track product sales, while Power BI visu
 
 ## License
 
-This project is open-source under the [Open Source License](LICENSE).
+This project is open-source under the Open Source License.
 
 ---
