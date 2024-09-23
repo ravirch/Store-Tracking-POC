@@ -1,4 +1,4 @@
-# 🏬 Store Tracking POC - Sales Analysis
+# Store Tracking POC - Sales Analysis
 
 ## Project Overview
 
@@ -35,7 +35,7 @@ The web app enables users to manage and track product sales, while Power BI visu
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/store-tracking-poc.git
+   git clone https://github.com/ravirch/store-tracking-poc.git
    cd store-tracking-poc
    ```
 
@@ -71,7 +71,8 @@ The web app enables users to manage and track product sales, while Power BI visu
 
 ## Dashboard Preview
 
-![Power BI Dashboard](./screenshots/powerbi_dashboard.png)
+![Power BI Dashboard](https://github.com/ravirch/Store-Tracking-POC/blob/main/screenshots/powerbi_dashboard.png.png)
+
 
 ---
 
